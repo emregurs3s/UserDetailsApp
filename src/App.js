@@ -1,18 +1,26 @@
 import {useEffect, useState} from 'react';
 import './App.css';
-import axios from 'axios';
 import UserList from "./components/UserList";
+import UserDetails from './components/UserDetails';
 function App(){
+  const [activeUserId,setActiveUserId] = useState(null);
 return(
   <div className="App">
     <div>
 
-  <UserList />
+  <UserList setActiveUserId={setActiveUserId}/>
+  {
+    
+  }
 
     </div>
-    <div>
-      sağ
+    {
+      activeUserId && (
+        <div>
+     <UserDetails activeUserId={activeUserId}/>
     </div>
+      )
+    }
   </div>
 )
 }
